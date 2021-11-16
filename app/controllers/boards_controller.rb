@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
-  en
+  end
 
   def create
     Board.create(board_params)
