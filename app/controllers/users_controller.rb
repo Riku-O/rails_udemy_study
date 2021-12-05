@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to mypage_path
     else
-      redirect_to :back, flash: {
+      redirect_back fallback_location: root_path, flash: {
         user: user,
         error_messages: user.errors.full_messages
       }
@@ -23,5 +23,5 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
-    end 
+    end
 end
